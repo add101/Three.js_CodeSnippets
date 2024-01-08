@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js-01</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- <script>
+        // Set up scene
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+      
+        // Add a cube to the scene
+        var geometry = new THREE.BoxGeometry();
+        var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        var cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+      
+        // Set camera position
+        camera.position.z = 5;
+      
+        // Render the scene
+        var animate = function () {
+          requestAnimationFrame(animate);
+          cube.rotation.x += 0.01;
+          cube.rotation.y += 0.01;
+          renderer.render(scene, camera);
+        };
+      
+        animate();
+      </script> -->
+
+<script>
+// Set up scene
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// Add a cube to the scene with Lambert material
+var geometry = new THREE.BoxGeometry();
+var material = new THREE.MeshLambertMaterial({ color: 0x00ff00 });
+var cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
+// Set camera position
+camera.position.z = 5;
+
+// Add a directional light to the scene
+var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(1, 1, 1).normalize();
+scene.add(directionalLight);
+
+// Set the background color of the scene
+scene.background = new THREE.Color(0xaaaaaa);
+
+// Render the scene
+var animate = function () {
+  requestAnimationFrame(animate);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  renderer.render(scene, camera);
+};
+
+animate();
+</script>
+      
+    
+</body>
+</html>
