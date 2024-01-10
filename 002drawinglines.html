@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js-01</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body>
+
+  <script>
+   //Renderer Camera and Scene : 
+   const renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
+    camera.position.set( 0, 0, 100 );
+    camera.lookAt( 0, 0, 0 );
+
+    const scene = new THREE.Scene();
+
+    //create a blue LineBasicMaterial
+    const material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+
+    //Geometry
+    const points = [];
+    points.push( new THREE.Vector3( - 10, 0, 0 ) );
+    points.push( new THREE.Vector3( 0, 10, 0 ) );
+    points.push( new THREE.Vector3( 10, 0, 0 ) );
+    //Continue lines to create square
+    points.push( new THREE.Vector3( 0, -10, 0 ) );
+    points.push( new THREE.Vector3( - 10, 0, 0 ) );
+
+    const geometry = new THREE.BufferGeometry().setFromPoints( points );
+    // Create object from geometry and material
+    const line = new THREE.Line( geometry, material );
+    //add to scene 
+    scene.add( line );
+         
+    // Set camera position
+    // camera.position.z = 5;
+  
+    // Function to Animate line, and Render the scene
+    var animate = function () {
+      requestAnimationFrame(animate);
+      line.rotation.x += 0.01;
+      line.rotation.y += 0.01;
+      renderer.render( scene, camera );
+    };
+    
+    // Call animate function
+    animate();
+
+    </script>
+
+
+      
+    
+</body>
+</html>
