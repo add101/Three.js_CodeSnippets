@@ -35,7 +35,9 @@
         points.push( new THREE.Vector3( 0, -10, 0 ) );
         points.push( new THREE.Vector3( - 10, 0, 0 ) );
     //Define geometry     
-        var geometry = new THREE.BufferGeometry().setFromPoints( points );
+        const geometry = new THREE.BufferGeometry().setFromPoints( points );
+                  console.log(points); //Checking console output of array
+                   console.log(geometry);
     // Create object from geometry and material
         const line = new THREE.Line( geometry, material );
     //add to scene 
