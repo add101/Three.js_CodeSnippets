@@ -1,6 +1,6 @@
 # Three.js Experiments
 
-##The start of: \
+The start of: \
 
 Some examples and code snippets using three.js Javascript Library ( https://threejs.org/ ) \
 
