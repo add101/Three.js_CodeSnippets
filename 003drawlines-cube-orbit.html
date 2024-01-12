@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js-01</title>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.138.3/build/three.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/three@0.138.3/examples/js/controls/OrbitControls.js"></script> <!-- Correct path to OrbitControls script -->
+    <style>
+        body { margin: 0; }
+        #text-top { color: rgb(0, 84, 252);
+                  position: absolute; 
+                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  font-size: 100%;
+                  margin-left: 15px;
+          }
+    </style>
+</head>
+<body>
+  <div id="text-top">
+    <p>Orbit = Left-click and move mouse</p> 
+    <p>Zoom = Middle mouse wheel scroll</p>
+  </div>
+
+<script>
+    // Renderer, Camera, and Scene-------------------
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
+    //camera.position.set(0, 0, 100);
+    //camera.lookAt(0, 0, 0);
+
+    const scene = new THREE.Scene();
+    //----------------------------------------------
+
+    // Create a blue LineBasicMaterial
+    const material = new THREE.LineBasicMaterial({ color: 0x0000ff });
+
+    // Geometry -diamond (square@45)
+    // const points = [];
+    // points.push(new THREE.Vector3(-10, 0, 0));
+    // points.push(new THREE.Vector3(0, 10, 0));
+    // points.push(new THREE.Vector3(10, 0, 0));
+    // // Continue lines to create square
+    // points.push(new THREE.Vector3(0, -10, 0));
+    // points.push(new THREE.Vector3(-10, 0, 0));
+    //   // Continue lines to create a cube
+    //   points.push(new THREE.Vector3(-10, 0, 10));
+
+      // Geometry -cube
+      const points = [];
+      points.push(new THREE.Vector3(0, 0, 0));
+      points.push(new THREE.Vector3(0, 10, 0)); //line-up 10 on y axis
+      points.push(new THREE.Vector3(10, 10, 0)); //10 right (+x-axis)
+      points.push(new THREE.Vector3(10, 0, 0)); //down 10 (0 y)
+      points.push(new THREE.Vector3(0, 0, 0)); //back to start
+      points.push(new THREE.Vector3(0, 0, 10)); //10 on z
+      //first part duplicated for square on +10 on z-axis     
+      points.push(new THREE.Vector3(0, 10, 10)); //line-up 10 on y axis
+      points.push(new THREE.Vector3(10, 10, 10)); //10 right (+x-axis)
+      points.push(new THREE.Vector3(10, 0, 10)); //down 10 (0 y)
+      points.push(new THREE.Vector3(0, 0, 10)); //back to start
+      //connecting lines:
+      points.push(new THREE.Vector3(0, 10, 10));//overlap
+      points.push(new THREE.Vector3(0, 10, 0));
+      points.push(new THREE.Vector3(10, 10, 0));//overlap line 44
+      points.push(new THREE.Vector3(10, 10, 10));
+      points.push(new THREE.Vector3(10, 0, 10)); //overlap
+      points.push(new THREE.Vector3(10, 0, 0)); 
+      //cube completed
+     
+        
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    // Create object from geometry and material
+    const line = new THREE.Line(geometry, material);
+    // Add to scene
+    scene.add(line);
+
+     // animate funtion (for render loop)
+    var animate = function () {
+      requestAnimationFrame(animate);
+    //   line.rotation.x += 0.01; //
+    //   line.rotation.y += 0.01; //
+       renderer.render( scene, camera );
+    };
+    
+    // Call animate function
+    animate();
+
+    // Add OrbitControls
+    camera.lookAt(5, 5, -5);
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+    controls.dampingFactor = 0.25;
+    controls.screenSpacePanning = false;
+    controls.maxPolarAngle = Math.PI / 2;
+    controls.target.set(5,5,5);    
+    camera.position.set( -4, 20, 30 );
+    controls.update();  
+   
+</script>
+
+</body>
+</html>
