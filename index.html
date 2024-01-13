@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Three.js Experiments - Index</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <style>
         body { margin: 5%; 
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,23 +18,49 @@
         }
     </style>
 </head>
-<body>
-    <section>
-        <p>Three.js scene with rotating cube- based on this tutorial in documentation: <a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene">Creating a scene in Three.js </a></p>
-        <a href="001rotatingcube.html">Rotating Cube</a>
-    </section>
-    <br>
+<body>    
 
-     <section>
-        <p>Here is the same scene with shaded material and light added:</p>
-       <a href="001brotatingcube-shaded.html">Rotating Cube with shaded material and a light</a>
-    </section>
-    <br>
-    <section>
-        <p>Three.js scene with lines- based on this tutorial in documentation: <a href="https://threejs.org/docs/index.html#manual/en/introduction/Drawing-lines">Drawing Lines in Three.js </a></p>
-        <a href="002drawinglines.html">Lines (Animated)</a>
-    </section>
-    <br>
+<section class="row">
+    <!--Rotating Cube Card-->
+    <div class="card" style="width: 18rem;">
+        <img src="https://placehold.co/300x300." class="card-img-top" alt="placeholder for thumbnail">
+        <div class="card-body">
+            <h5 class="card-title">Rotating Cube</h5>
+            <p class="card-text">Three.js scene with rotating cube- based on this tutorial in documentation: <a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene">Creating a scene in Three.js</p>
+            <a href="#" class="btn btn-primary">View Page</a>
+        </div>
+    </div>
+
+    <!--Rotating Cube with Shading Card-->
+    <div class="card" style="width: 18rem;">
+        <img src="https://placehold.co/300x300." class="card-img-top" alt="placeholder for thumbnail">
+        <div class="card-body">
+            <h5 class="card-title">Rotating Cube - Shaded</h5>
+            <p class="card-text">Here is the same scene with shaded material and light added: </p>
+            <a href="001brotatingcube-shaded.html" class="btn btn-primary">View Page</a>
+        </div>
+    </div>
+
+    <!--Lines-->
+    <div class="card" style="width: 18rem;">
+        <img src="https://placehold.co/300x300." class="card-img-top" alt="placeholder for thumbnail">
+        <div class="card-body">
+            <h5 class="card-title">Drawing Lines (Animated)</h5>
+            <p class="card-text">Three.js scene with lines- based on this tutorial in documentation: <a href="https://threejs.org/docs/index.html#manual/en/introduction/Drawing-lines">Drawing Lines in Three.js </p>
+            <a href="002drawinglines.html" class="btn btn-primary">View Page</a>
+        </div>
+    </div>
+
+     <!--Cube with Orbit Controls-->
+     <div class="card" style="width: 18rem;">
+        <img src="https://placehold.co/300x300." class="card-img-top" alt="placeholder for thumbnail">
+        <div class="card-body">
+            <h5 class="card-title">Cube with Orbit Controls</h5>
+            <p class="card-text">Geometry extended to create a cube, using points on each corner to define the lines.</p>
+            <a href="003drawlines-cube-orbit.html" class="btn btn-primary">View Page</a>
+        </div>
+    </div>
+</section>
     
 </body>
 </html>
