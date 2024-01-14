@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three.js GLTF Loader</title>
+  <!-- Three.js CDN -->
+  <script  src="https://cdn.jsdelivr.net/npm/three@0.138.3/build/three.js"></script>
+  <!-- GLTFLoader CDN -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/three@0.138.3/examples/js/loaders/GLTFLoader.js"></script>
+   
+  <script src="https://cdn.jsdelivr.net/npm/three@0.138.3/examples/js/controls/OrbitControls.js"></script> <!-- Correct path to OrbitControls script -->
+  <style>
+    body { margin: 0; }
+  </style>
+</head>
+<body>
+  <script>
+    // Set up the scene
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Add a light
+    const light = new THREE.AmbientLight(0xffffff);
+    scene.add(light);
+
+    // Load the GLTF model
+    const loader = new THREE.GLTFLoader();
+    loader.load('Astronaut.glb', (gltf) => {
+      scene.add(gltf.scene);
+    });
+
+    // Set up the camera position
+    camera.position.z = 5;
+
+    // Animation loop
+    const animate = () => {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    };
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      const newWidth = window.innerWidth;
+      const newHeight = window.innerHeight;
+
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(newWidth, newHeight);
+    });
+
+    // Start the animation loop
+    animate();
+  </script>
+</body>
+</html>
