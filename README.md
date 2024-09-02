@@ -6,6 +6,6 @@ Three.js repository link: https://github.com/mrdoob/three.js/
 
 ----------------------------------------------------------------
 
-## Link to Index of html files:
+## Link to Index of html files:.
 
 https://add101.github.io/three.js_experiments/
