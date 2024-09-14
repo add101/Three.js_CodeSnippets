@@ -12,20 +12,19 @@ body {
 
 .card {
     box-sizing: border-box; /* Includes padding and border in width */
-  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.5s;
   min-height: 300px;
-  height: 800px;
   /* border-radius: 5px; */
   /* padding: 3px; */
-  border: solid 3px white;
+  /* border: solid 3px white; */
   position: relative;
   z-index: 1; /* Ensure cards stack properly */
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(144, 34, 1, 0.2);
-  border: solid 3px orange;
+  /* border: solid 3px orange; */
   cursor: pointer;
 }
 
@@ -40,36 +39,29 @@ body {
   .card img {
     width: 100%; /* Ensure the image takes up the full width of its container */
     height: auto; /* Maintain aspect ratio */
-    height: 380px; /* Optional: Set a maximum height for the images */
+    max-height: 380px; /* Optional: Set a maximum height for the images */
     object-fit: cover; /* Ensures the image fits within the container, cropping if needed */
 }
 
 .cards-wrapper {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #ffffff;
-  padding: 10px;
+    display: flex; 
+    /* flex: 1 1 calc(50% - 22px); */
+    /* flex: 1 1 calc(50% - 22px);  */
+    /* Two columns - takes 50% width with spacing */
+    /* width: 44%; */
+    flex-wrap: wrap; 
+    /* allows wrapping for smaller screens */
+    justify-content: space-around;
+    gap: 18px; /*add some space between the columns */
+    margin: 0; /* Removes any default margins */
+    box-sizing: border-box;
 }
 
 .card-container {
-  background-color: rgba(255, 255, 255, 0.8);
-  /* border: 1px solid rgba(0, 0, 0, 0.8); */
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #ffffff;
-  padding: 10px;
-}
-
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
+    flex: 1 1 calc(50% - 22px);
+  
+    /* display: flex;  */
+  
+    min-width: 300px; /* Ensures cards don't shrink too much */
+    box-sizing: border-box;
 }
