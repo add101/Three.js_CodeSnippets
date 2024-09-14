@@ -39,7 +39,7 @@ body {
   .card img {
     width: 100%; /* Ensure the image takes up the full width of its container */
     height: auto; /* Maintain aspect ratio */
-    max-height: 320px; /* Optional: Set a maximum height for the images */
+    max-height: 380px; /* Optional: Set a maximum height for the images */
     object-fit: cover; /* Ensures the image fits within the container, cropping if needed */
 }
 
