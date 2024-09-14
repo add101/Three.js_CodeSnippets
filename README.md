@@ -2,7 +2,7 @@
 
 Some examples and code snippets using three.js Javascript Library ( https://threejs.org/ ) 
 
-## Links
+## Links:
 
 [Index](https://add101.github.io/Three.js_CodeSnippets/)
 
